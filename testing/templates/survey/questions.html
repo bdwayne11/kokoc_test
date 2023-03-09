@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Всем внимание, идет тестирование!{% endblock %}
+{% block content %}
+    <form  class="align-items-center d-flex flex-column justify-content-center m-5" method='post' action=' '>
+        {% csrf_token %}
+        {% for quest in questions %}
+        <div class="form-group">
+            <label for="question">{{quest.text}}</label>
+        </div>
+            {% for choice in quest.choice.all %}
+        <div class="form-check">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="{{quest.text}}" id="gridRadios1" value="{{ choice.text }}">
+                <label class="form-check-label" for="gridRadios1">
+                    {{choice}}
+                </label>
+            </div>
+        </div>
+            {% endfor %}
+    {% endfor %}
+        <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+{% endblock %}

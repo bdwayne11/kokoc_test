@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "test"
+version = "0.1.0"
+description = ""
+authors = ["bdwayne"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "2.2"
+python-dotenv = "^1.0.0"
+django-debug-toolbar = "3.2.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

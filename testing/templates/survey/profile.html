@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container" align="center">
+
+    <div class="card-columns" style="padding: 10px; margin: 20px;">
+        <div class="card" align="center" style="width: 32rem; border:5px black solid">
+            <div class="card-body">
+                <h5 class="card-title">{{ user.username }}</h5>
+                <h5 class="card-title" style="background-color: rgb({{user_color_active.rgb_code}})"> Ваш активный цвет {{ user_color_active }}</h5>
+
+                    <form  class="align-items-center d-flex flex-column justify-content-center m-5" method='post' action=' '>
+                    {% csrf_token %}
+                        <div class="form-group">
+                            <label for="question">Выберите цвет</label>
+                        </div>
+                    {% for color in colors %}
+                        <div class="form-check">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="{{color.name}}" id="gridRadios1" value="{{ color.name }}">
+                                <label class="form-check-label" for="gridRadios1">
+                                    {{color.name}} {{color.price}} монет
+                                </label>
+                            </div>
+                        </div>
+                    {% endfor %}
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

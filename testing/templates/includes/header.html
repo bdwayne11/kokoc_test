@@ -1,0 +1,17 @@
+<header>
+<nav class="site-header sticky-top py-1" style="background-color: rgb(228, 204, 255)">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="nav-link link-light " href="{% url 'survey:index' %}">Вернуться на главную</a>
+    {% if user.is_authenticated %}
+    <a class="nav-link link-light" href="{% url 'users:logout' %}">Выйти</a>
+    <a class="nav-link link-light" href="{% url 'survey:get_user_list' %}">Все пользователи</a>
+    <a class="nav-link link-light" href="{% url 'survey:profile' %}">Мой профиль</a>
+    <span class="nav nav-link accent - text navbar - text">Пользователь: {{ user.username }}</span>
+    <span class="nav nav-link accent - text navbar - text">Ваш баланс: {{ user.currency }}</span>
+    {% endif %}
+    {% if not user.is_authenticated %}
+    <a class="nav-link link-light" href="{% url 'users:signup' %}">Регистрация</a>
+    {% endif %}
+  </div>
+</nav>
+</header>

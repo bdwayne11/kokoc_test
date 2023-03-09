@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Главная моего тестового{% endblock %}
+{% block content %}
+    {% for user in page_obj %}
+        <div align="center">
+        <h4>{{ user.username }}</h4>
+        <p>Количество пройденных тестов: {{ user.count_test }}</p>
+        </div>
+        {% if not forloop.last %}
+            <hr/>
+        {% endif %}
+    {% endfor %}
+    {% include "includes/paginator.html" %}
+{% endblock %}

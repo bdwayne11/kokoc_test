@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container" align="center">
+
+    <div class="card-columns" style="padding: 10px; margin: 20px;">
+        <div class="card" align="center" style="width: 32rem; border:5px black solid">
+            <div class="card-body">
+                <h5 class="card-title">Баланс: {{score}}</h5>
+
+                <p class="card-text">Правильные ответы: {{correct}}</p>
+                <p class="card-text">Неправильные ответы: {{wrong}}</p>
+                <h5>Спасибо за то что прошли опрос!</h5>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
